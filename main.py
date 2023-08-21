@@ -282,7 +282,7 @@ class PhoneBook:
             except ValueError:
                 print("Invalid input. ID must be integer. Please try again.")
 
-        if choice == "2":
+        elif choice == "2":
             search_values = self.__prepare_search_attributes()
             self.__search_contacts_by_attributes(search_values)
 
