@@ -286,6 +286,9 @@ class PhoneBook:
             search_values = self.__prepare_search_attributes()
             self.__search_contacts_by_attributes(search_values)
 
+        else:
+            print("Invalid option. Please try again.")
+
     @staticmethod
     def __update_field(field_name: str, current_value: str) -> str:
         """
@@ -312,8 +315,8 @@ class PhoneBook:
         """
 
         search_attributes = (
-            ("first_name", "First Name"),
             ("last_name", "Last Name"),
+            ("first_name", "First Name"),
             ("middle_name", "Middle Name"),
             ("organization", "Organization"),
             ("work_phone", "Work Phone"),
