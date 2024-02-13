@@ -1,0 +1,25 @@
+# documentation: https://flake8.pycqa.org/en/latest/user/configuration.html
+[flake8]
+exclude =
+      .git,
+      .pytest_cache,
+      .idea,
+      __pycache__,
+      .venv,
+      scripts/*,
+      venv,
+
+no-accept-encodings = true
+max_line_length = 120
+max-complexity = 9
+max-cognitive-complexity = 9
+max-expression-complexity = 9
+per-file-ignores=
+    # Ignore in all files
+    *: T201,D100,D401,D107,ANN101
+
+    # Ignore in schemas
+    schemas.py: ANN101,ANN001,ANN201,D100,D101,D102,U100,N805
+
+    # Ignore in tests
+    test_phonebook.py: ANN001,ANN201,ANN101,D100,D101,D102,D103,D104,D107,PT001,PT023,U100,E800,PT011,F841
