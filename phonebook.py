@@ -1,3 +1,4 @@
+import copy
 import os
 
 from schemas import Contact as ContactPydantic
@@ -221,10 +222,12 @@ class PhoneBook:
                 work_phone=contact_data.work_phone,
                 personal_phone=contact_data.personal_phone,
             )
-            self.__add_contact(new_contact)
 
         except ValueError as error:
             print(f"Invalid input: {error}")
+
+        else:
+            self.__add_contact(new_contact)
 
     def process_edit_contact(self) -> None:
         """
@@ -237,7 +240,7 @@ class PhoneBook:
             contact_id = int(input("Enter ID of contact to edit: "))
             if contact_id < 0:
                 raise IndexError
-            edited_contact = self.contacts[contact_id]
+            edited_contact = copy.copy(self.contacts[contact_id])
             edited_contact.last_name = self.__update_field("Last Name", edited_contact.last_name)
             edited_contact.first_name = self.__update_field("First Name", edited_contact.first_name)
             edited_contact.middle_name = self.__update_field("Middle Name", edited_contact.middle_name)
@@ -265,13 +268,14 @@ class PhoneBook:
                 personal_phone=contact_data.personal_phone,
             )
 
-            self.__edit_contact(contact_id, edited_contact)
-
         except IndexError:
             print("Invalid ID. Please try again.")
 
         except ValueError as error:
             print(f"Invalid input: {error}")
+
+        else:
+            self.__edit_contact(contact_id, edited_contact)
 
     def process_search_contacts(self) -> None:
         """

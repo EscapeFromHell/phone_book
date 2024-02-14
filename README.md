@@ -34,7 +34,13 @@ Python 3.11, Pydantic 2.6
 
 ```cd phone_book```
 
-- Разверните виртуальное окружение и установите Poetry:
+- Разверните виртуальное окружение:
+```
+- virtualenv venv
+- source venv/Scripts/activate
+```
+
+- Установите Poetry
 
 ```pip install poetry```
 
